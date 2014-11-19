@@ -14,6 +14,11 @@
 		C9C8A3611A1C2378005B1037 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C8A3601A1C2378005B1037 /* Images.xcassets */; };
 		C9C8A3641A1C2378005B1037 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9C8A3621A1C2378005B1037 /* LaunchScreen.xib */; };
 		C9C8A3701A1C2378005B1037 /* PhotoEditingExtentionSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A36F1A1C2378005B1037 /* PhotoEditingExtentionSampleTests.m */; };
+		C9C8A3801A1C2489005B1037 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8A37F1A1C2489005B1037 /* PhotosUI.framework */; };
+		C9C8A3821A1C2489005B1037 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C8A3811A1C2489005B1037 /* Photos.framework */; };
+		C9C8A3881A1C2489005B1037 /* PhotoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A3871A1C2489005B1037 /* PhotoEditingViewController.m */; };
+		C9C8A38A1A1C2489005B1037 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C8A3891A1C2489005B1037 /* MainInterface.storyboard */; };
+		C9C8A38D1A1C2489005B1037 /* FilterExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9C8A37D1A1C2489005B1037 /* FilterExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +29,28 @@
 			remoteGlobalIDString = C9C8A34F1A1C2378005B1037;
 			remoteInfo = PhotoEditingExtentionSample;
 		};
+		C9C8A38B1A1C2489005B1037 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9C8A3481A1C2378005B1037 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C8A37C1A1C2489005B1037;
+			remoteInfo = FilterExtention;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9C8A3911A1C2489005B1037 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9C8A38D1A1C2489005B1037 /* FilterExtention.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C9C8A3501A1C2378005B1037 /* PhotoEditingExtentionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoEditingExtentionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +66,13 @@
 		C9C8A3691A1C2378005B1037 /* PhotoEditingExtentionSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoEditingExtentionSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C8A36E1A1C2378005B1037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9C8A36F1A1C2378005B1037 /* PhotoEditingExtentionSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoEditingExtentionSampleTests.m; sourceTree = "<group>"; };
+		C9C8A37D1A1C2489005B1037 /* FilterExtention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FilterExtention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8A37F1A1C2489005B1037 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		C9C8A3811A1C2489005B1037 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		C9C8A3851A1C2489005B1037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9C8A3861A1C2489005B1037 /* PhotoEditingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoEditingViewController.h; sourceTree = "<group>"; };
+		C9C8A3871A1C2489005B1037 /* PhotoEditingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoEditingViewController.m; sourceTree = "<group>"; };
+		C9C8A3891A1C2489005B1037 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +90,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9C8A37A1A1C2489005B1037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8A3801A1C2489005B1037 /* PhotosUI.framework in Frameworks */,
+				C9C8A3821A1C2489005B1037 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +107,8 @@
 			children = (
 				C9C8A3521A1C2378005B1037 /* PhotoEditingExtentionSample */,
 				C9C8A36C1A1C2378005B1037 /* PhotoEditingExtentionSampleTests */,
+				C9C8A3831A1C2489005B1037 /* FilterExtention */,
+				C9C8A37E1A1C2489005B1037 /* Frameworks */,
 				C9C8A3511A1C2378005B1037 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +118,7 @@
 			children = (
 				C9C8A3501A1C2378005B1037 /* PhotoEditingExtentionSample.app */,
 				C9C8A3691A1C2378005B1037 /* PhotoEditingExtentionSampleTests.xctest */,
+				C9C8A37D1A1C2489005B1037 /* FilterExtention.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +164,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C9C8A37E1A1C2489005B1037 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A37F1A1C2489005B1037 /* PhotosUI.framework */,
+				C9C8A3811A1C2489005B1037 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9C8A3831A1C2489005B1037 /* FilterExtention */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A3861A1C2489005B1037 /* PhotoEditingViewController.h */,
+				C9C8A3871A1C2489005B1037 /* PhotoEditingViewController.m */,
+				C9C8A3891A1C2489005B1037 /* MainInterface.storyboard */,
+				C9C8A3841A1C2489005B1037 /* Supporting Files */,
+			);
+			path = FilterExtention;
+			sourceTree = "<group>";
+		};
+		C9C8A3841A1C2489005B1037 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A3851A1C2489005B1037 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,10 +202,12 @@
 				C9C8A34C1A1C2378005B1037 /* Sources */,
 				C9C8A34D1A1C2378005B1037 /* Frameworks */,
 				C9C8A34E1A1C2378005B1037 /* Resources */,
+				C9C8A3911A1C2489005B1037 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9C8A38C1A1C2489005B1037 /* PBXTargetDependency */,
 			);
 			name = PhotoEditingExtentionSample;
 			productName = PhotoEditingExtentionSample;
@@ -157,6 +232,23 @@
 			productReference = C9C8A3691A1C2378005B1037 /* PhotoEditingExtentionSampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C9C8A37C1A1C2489005B1037 /* FilterExtention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8A38E1A1C2489005B1037 /* Build configuration list for PBXNativeTarget "FilterExtention" */;
+			buildPhases = (
+				C9C8A3791A1C2489005B1037 /* Sources */,
+				C9C8A37A1A1C2489005B1037 /* Frameworks */,
+				C9C8A37B1A1C2489005B1037 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FilterExtention;
+			productName = FilterExtention;
+			productReference = C9C8A37D1A1C2489005B1037 /* FilterExtention.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +264,9 @@
 					C9C8A3681A1C2378005B1037 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = C9C8A34F1A1C2378005B1037;
+					};
+					C9C8A37C1A1C2489005B1037 = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -190,6 +285,7 @@
 			targets = (
 				C9C8A34F1A1C2378005B1037 /* PhotoEditingExtentionSample */,
 				C9C8A3681A1C2378005B1037 /* PhotoEditingExtentionSampleTests */,
+				C9C8A37C1A1C2489005B1037 /* FilterExtention */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +305,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A37B1A1C2489005B1037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8A38A1A1C2489005B1037 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +337,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9C8A3791A1C2489005B1037 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8A3881A1C2489005B1037 /* PhotoEditingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,6 +352,11 @@
 			isa = PBXTargetDependency;
 			target = C9C8A34F1A1C2378005B1037 /* PhotoEditingExtentionSample */;
 			targetProxy = C9C8A36A1A1C2378005B1037 /* PBXContainerItemProxy */;
+		};
+		C9C8A38C1A1C2489005B1037 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9C8A37C1A1C2489005B1037 /* FilterExtention */;
+			targetProxy = C9C8A38B1A1C2489005B1037 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,6 +510,30 @@
 			};
 			name = Release;
 		};
+		C9C8A38F1A1C2489005B1037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FilterExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C9C8A3901A1C2489005B1037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FilterExtention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +559,14 @@
 			buildConfigurations = (
 				C9C8A3771A1C2378005B1037 /* Debug */,
 				C9C8A3781A1C2378005B1037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C9C8A38E1A1C2489005B1037 /* Build configuration list for PBXNativeTarget "FilterExtention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8A38F1A1C2489005B1037 /* Debug */,
+				C9C8A3901A1C2489005B1037 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
