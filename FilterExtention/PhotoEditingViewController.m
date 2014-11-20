@@ -10,23 +10,44 @@
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
 
-static NSString * const adjustmentFormatIdentifier = @"com.example.PhotosEditSampleApp";
-static NSString * const formatVersion = @"1.0";
+static NSString * const AdjustmentFormatIdentifier = @"com.example.PhotosEditSampleApp";
+static NSString * const FormatVersion = @"1.0";
 
 @interface PhotoEditingViewController () <PHContentEditingController>
 
+/**
+ *  PHContentEditingInput
+ */
 @property (strong, nonatomic) PHContentEditingInput *contentEditingInput;
 
+/**
+ *  フィルタ結果出力用のUIImageView
+ */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+/**
+ *  フィルタ選択用のUISegmentedControl
+ */
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
+/**
+ *  選択中のフィルタの名
+ */
 @property (copy, nonatomic) NSString *selectedFilterName;
 
+/**
+ *  最初に選択されていたフィルタ名
+ */
 @property (copy, nonatomic) NSString *initialFilterName;
 
+/**
+ *  CIContext
+ */
 @property (strong, nonatomic) CIContext *ciContext;
 
+/**
+ *  フィルタ名格納用のNSArray
+ */
 @property (copy, nonatomic) NSArray *filterNames;
 
 @end
@@ -38,9 +59,7 @@ static NSString * const formatVersion = @"1.0";
     [super viewDidLoad];
     
     self.ciContext = [CIContext contextWithOptions:nil];
-    
     self.filterNames = @[@"CISepiaTone", @"CIPhotoEffectChrome", @"CIPhotoEffectInstant"];
-
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.clipsToBounds = YES;
 }
@@ -54,14 +73,12 @@ static NSString * const formatVersion = @"1.0";
 
 - (BOOL)canHandleAdjustmentData:(PHAdjustmentData *)adjustmentData
 {
-    return [adjustmentData.formatIdentifier isEqualToString:adjustmentFormatIdentifier] && [adjustmentData.formatVersion isEqualToString:formatVersion];
+    return [adjustmentData.formatIdentifier isEqualToString:AdjustmentFormatIdentifier] && [adjustmentData.formatVersion isEqualToString:FormatVersion];
 }
 
 - (void)startContentEditingWithInput:(PHContentEditingInput *)contentEditingInput placeholderImage:(UIImage *)placeholderImage
 {
     self.contentEditingInput = contentEditingInput;
-    
-    // Load input image
     switch (self.contentEditingInput.mediaType) {
         case PHAssetMediaTypeImage:
             self.imageView.image = self.contentEditingInput.displaySizeImage;
@@ -95,19 +112,17 @@ static NSString * const formatVersion = @"1.0";
 
 - (void)finishContentEditingWithCompletionHandler:(void (^)(PHContentEditingOutput *))completionHandler
 {
-    // Update UI to reflect that editing has finished and output is being rendered.
-    
-    // Render and provide output on a background queue.
+    // バックグラウンドキュー上でレンダリングと生成物作成を行う
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         if (self.contentEditingInput.mediaType == PHAssetMediaTypeImage) {
-            // [5] フルサイズのイメージを取得
+            // フルサイズのイメージを取得
             NSURL *url = [self.contentEditingInput fullSizeImageURL];
             int orientation = [self.contentEditingInput fullSizeImageOrientation];
             CIImage *inputImage = [CIImage imageWithContentsOfURL:url options:nil];
             inputImage = [inputImage imageByApplyingOrientation:orientation];
             
-            // [6] フィルターを適用、NSDataを作成
+            // フィルターを適用、NSDataを作成
             CIFilter *filter = [CIFilter filterWithName:self.selectedFilterName];
             [filter setDefaults];
             [filter setValue:inputImage forKey:kCIInputImageKey];
@@ -117,11 +132,11 @@ static NSString * const formatVersion = @"1.0";
             UIImage *transformedImage = [UIImage imageWithCGImage:cgImage];
             NSData *renderedJPEGData = UIImageJPEGRepresentation(transformedImage, 0.9f);
             
-            // [7] PHAdjustmentDataを作成
+            // PHAdjustmentDataを作成
             NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:self.selectedFilterName];
-            PHAdjustmentData *adjustmentData = [[PHAdjustmentData alloc] initWithFormatIdentifier:adjustmentFormatIdentifier formatVersion:formatVersion data:archivedData];
+            PHAdjustmentData *adjustmentData = [[PHAdjustmentData alloc] initWithFormatIdentifier:AdjustmentFormatIdentifier formatVersion:FormatVersion data:archivedData];
             
-            // [8] PHContentEditingOutputを作成、指定URLにjpegファイルを書き出し
+            // PHContentEditingOutputを作成、指定URLにjpegファイルを書き出し
             PHContentEditingOutput *contentEditingOutput = [[PHContentEditingOutput alloc] initWithContentEditingInput:self.contentEditingInput];
             [renderedJPEGData writeToURL:[contentEditingOutput renderedContentURL] atomically:YES];
             [contentEditingOutput setAdjustmentData:adjustmentData];
@@ -151,7 +166,7 @@ static NSString * const formatVersion = @"1.0";
 #pragma mark - Action methods
 
 /**
- *  segmentedControlのアクションハンドラ
+ *  UISegmentedControlのアクションハンドラ
  *
  *  @param sender UISegmentedControl
  */
