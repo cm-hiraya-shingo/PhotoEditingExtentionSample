@@ -1,2 +1,2 @@
 # PhotoEditingExtentionSample
-Photo Editing Extention Sample Project
+This is Photo Editing Extention Sample Project
